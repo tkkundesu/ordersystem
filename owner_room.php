@@ -22,7 +22,6 @@ if(isset($_REQUEST['command'])){
   header("Location:owner_room.php");
     }
 
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">

@@ -185,12 +185,12 @@ public function count_minus(){//カートの任意の商品の個数をマイナ
       }
 
 public function room_add(){//会議室追加
-  try{
-          if (!isset($_REQUEST['new_room']) || $_REQUEST['new_room'] === '') {//リクエストパラメーターチェック
-             throw new \Exception('リクエストパラメーターがセットされていません。');
+	try{
+         if (!isset($_REQUEST['new_room']) || $_REQUEST['new_room'] === '') {//リクエストパラメーターチェック
+	    throw new \Exception('リクエストパラメーターがセットされていません。');
            }
-      $stmt = $this->_db->prepare('insert into room values(null,?,0)');//ルームテーブルにインサート
-      $stmt->execute([$_REQUEST['new_room']]);
+	  $stmt = $this->_db->prepare('insert into room values(null,?,0)');//ルームテーブルにインサート
+          $stmt->execute([$_REQUEST['new_room']]);
   }catch (\Exception $e) {
         echo $e->getMessage();
         exit;

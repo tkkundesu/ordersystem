@@ -49,14 +49,12 @@ if(isset($_REQUEST['command'])){
     <fieldset>
       <table class="owner_table">
         <tr>
-          <th>会議室ID</th>
           <th>会議室名</th>
           <th></th>
           <th>利用</th>
         </tr>
       <?php foreach ($sql as $row) :?>
         <tr>
-          <td><?php echo $row->id; ?></td>
           <td><form action="" method="post">
             <input class="form-control" type="text" name="room_name" value="<?php echo $row->room_name; ?>">
             <input type="hidden" name="command" value="update">

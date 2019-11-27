@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/owner.css">
+<link rel="stylesheet" href="../css/owner.css">
 <?php
 require "Drink.php";
 require "config.php";
@@ -48,11 +48,11 @@ header("Location:owner_drink.php");
 
         <form action="" method="post" enctype="multipart/form-data">
           <input type="hidden" name="insert" value="insert">
-          <input class="form-control col-sm-3 owner_form" type="text" name="new_product" placeholder="ドリンク名記入欄">
+          <input class="form-control col-sm-5 owner_form" type="text" name="new_product" placeholder="ドリンク名記入欄">
           <br>
           <div class="custom-file">
           <input type="file" class="custom-file-input" id="customFile" lang="ja" name="image">
-          <label class="custom-file-label col-sm-3 owner_form" for="customFile">ドリンク画像選択</label>
+          <label class="custom-file-label col-sm-5 owner_form" for="customFile">ドリンク画像選択</label>
           </div>
           <br>
           <br>
@@ -73,6 +73,7 @@ header("Location:owner_drink.php");
     <h2>既存ドリンク編集</h2>
       <table class="owner_table">
         <tr>
+          <th>ドリンクID</th>
           <th>ドリンク名</th>
           <th></th>
           <th>提供</th>
@@ -81,6 +82,7 @@ header("Location:owner_drink.php");
         </tr>
       <?php foreach ($sql as $row) :?>
         <tr>
+          <td><?php echo $row->id; ?></td>
           <td><form action="" method="post" >
             <input class="form-control" type="text" name="product_name" value="<?php echo $row->productName; ?>">
             <input type="hidden" name="command" value="update">

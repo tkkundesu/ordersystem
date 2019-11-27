@@ -44,7 +44,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>注文システム</title>
   </head>
 
@@ -189,19 +189,19 @@
                     <div class="card h-100">
                       <!-- 画像の拡張子判別 -->
                       <?php $product_id=$row->id;
-                        $url1='../images/'.$product_id.'.jpg';
-                        $url2='../images/'.$product_id.'.png';
-                        $url3='../images/'.$product_id.'.gif';
+                        $url1='images/'.$product_id.'.jpg';
+                        $url2='images/'.$product_id.'.png';
+                        $url3='images/'.$product_id.'.gif';
                         $response1 = @file_get_contents($url1);
                         $response2 = @file_get_contents($url2);
                         $response3 = @file_get_contents($url3);
                         // 存在したらURLとして使う
                         if ($response1 !== false) {
-                          $url='../images/'.$product_id.'.jpg';
+                          $url='images/'.$product_id.'.jpg';
                         } else if ($response2 !== false){
-                          $url='../images/'.$product_id.'.png';
+                          $url='images/'.$product_id.'.png';
                         } else{
-                          $url='../images/'.$product_id.'.gif';
+                          $url='images/'.$product_id.'.gif';
                         }
                       ?>
 

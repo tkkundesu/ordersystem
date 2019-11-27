@@ -73,7 +73,6 @@ header("Location:owner_drink.php");
     <h2>既存ドリンク編集</h2>
       <table class="owner_table">
         <tr>
-          <th>ドリンクID</th>
           <th>ドリンク名</th>
           <th></th>
           <th>提供</th>
@@ -82,7 +81,6 @@ header("Location:owner_drink.php");
         </tr>
       <?php foreach ($sql as $row) :?>
         <tr>
-          <td><?php echo $row->id; ?></td>
           <td><form action="" method="post" >
             <input class="form-control" type="text" name="product_name" value="<?php echo $row->productName; ?>">
             <input type="hidden" name="command" value="update">

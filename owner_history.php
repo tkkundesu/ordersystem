@@ -34,7 +34,7 @@ $sql=$order->get_history();
           <td><?php echo $row->product_count; ?></td>
           <td><?php echo $row->milk_count ?></td>
           <td><?php echo $row->sugar_count; ?></td>
-          <td><?php echo $row->(order_time + interval 9 hour'); ?></td>
+          <td><?php echo $row->(order_time + interval 9 hour); ?></td>
         </tr>
       <?php endforeach;?>
       </thead>

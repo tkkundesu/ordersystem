@@ -183,8 +183,7 @@ public function count_minus(){//カートの任意の商品の個数をマイナ
       exit;
         }
       }
-
-public function room_add(){//会議室追加
+  public function room_add(){//会議室追加
 	try{
          if (!isset($_REQUEST['new_room']) || $_REQUEST['new_room'] === '') {//リクエストパラメーターチェック
 	    throw new \Exception('リクエストパラメーターがセットされていません。');

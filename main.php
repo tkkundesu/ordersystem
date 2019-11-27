@@ -44,7 +44,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>注文システム</title>
   </head>
 
@@ -92,7 +92,7 @@
                       <input type = "submit" value = "削除" class="group_s btn btn-c">
                     </form>
                   </div>
-
+                  
                   <?php
                 if($product['milk']!=0){
                   echo 'ミルク  ',$product['milk'],'  個　';
@@ -179,7 +179,8 @@
   <!-- 商品一覧 -->
   <body class = "body">
       <!-- ヘッダー -->
-  <div class="header"><img src="images/drinkmenu.png" class="logo"></div>
+  <div class="header"><img src="../images/drinkmenu.png" class="logo"></div>
+
 <hr>
             <div class="card-deck">
               <div class="row">
@@ -188,77 +189,81 @@
                     <div class="card h-100">
                       <!-- 画像の拡張子判別 -->
                       <?php $product_id=$row->id;
-                  $url1='images/'.$product_id.'.jpg';
-                  $url2='images/'.$product_id.'.png';
-                  $url3='images/'.$product_id.'.gif';
-                  $response1 = @file_get_contents($url1);
-                  $response2 = @file_get_contents($url2);
-                  $response3 = @file_get_contents($url3);
-                  // 存在したらURLとして使う
-                  if ($response1 !== false) {
-                    $url='images/'.$product_id.'.jpg';
-                  } else if ($response2 !== false){
-                    $url='images/'.$product_id.'.png';
-                  } else{
-                    $url='images/'.$product_id.'.gif';
-                  }
-                  ?>
+                        $url1='../images/'.$product_id.'.jpg';
+                        $url2='../images/'.$product_id.'.png';
+                        $url3='../images/'.$product_id.'.gif';
+                        $response1 = @file_get_contents($url1);
+                        $response2 = @file_get_contents($url2);
+                        $response3 = @file_get_contents($url3);
+                        // 存在したらURLとして使う
+                        if ($response1 !== false) {
+                          $url='../images/'.$product_id.'.jpg';
+                        } else if ($response2 !== false){
+                          $url='../images/'.$product_id.'.png';
+                        } else{
+                          $url='../images/'.$product_id.'.gif';
+                        }
+                      ?>
 
-                <!-- 画像を表示 -->
-                <img src = "<?php echo $url;?>" class="card-img-top">
-
+                    <!-- 画像を表示 -->
+                      <img src = "<?php echo $url;?>" class="card-img-top">
+                
                 <div class = "card-body">
                   <form>
                     <div class="form-row align-items-center">
                       <strong><?php echo $row->productName; ?></strong>
                       <select name = "count" class="custom-select" id="inlineFormCustomSelect">
                         <?php for($i = 1; $i<=10; $i++){
-                      echo '<option value = "',$i, '">',$i, '</option>';
-                    }
-                    ?>
-                    </select>
-                  </div>
-                  <!-- ミルク、砂糖個数選択 -->
-                  <?php
-                    if($row->milk==1){
-                      echo '<div class="form-row align-items-center">';
-                      echo 'ミルク';
-                      echo '<select name = "milk" class=" my_select" id="inlineFormCustomSelect">';
-                      for($m = 0; $m<=10; $m++){
-                        echo '<option value = "',$m, '">',$m, '</option>';
+                                echo '<option value = "',$i, '">',$i, '</option>';
+                              }
+                        ?>
+                      </select>
+                    </div>
+                    <!-- ミルク、砂糖個数選択 -->
+                    <?php
+                      if($row->milk==1){
+                        echo '<div class="form-row align-items-center">';
+                        echo 'ミルク';
+                        echo '<select name = "milk" class=" my_select" id="inlineFormCustomSelect">';
+                        for($m = 0; $m<=10; $m++){
+                          echo '<option value = "',$m, '">',$m, '</option>';
+                        }
+                        echo '</select>';
+                      }else{
+                        echo '<input type="hidden" name="milk" value=0><br>';
                       }
-                      echo '</select>';
-                    }else{
-                      echo '<input type="hidden" name="milk" value=0><br>';
-                    }
-                    if($row->sugar==1){
-                      echo '砂糖';
-                      echo '<select name = "sugar" class=" my_select" id="inlineFormCustomSelect">';
-                      for($s = 0; $s<=10; $s++){
-                        echo '<option value = "',$s, '">',$s, '</option>';
+                      if($row->sugar==1){
+                        echo '砂糖';
+                        echo '<select name = "sugar" class=" my_select" id="inlineFormCustomSelect">';
+                        for($s = 0; $s<=10; $s++){
+                          echo '<option value = "',$s, '">',$s, '</option>';
+                        }
+                        echo '</select> </div> ';
+                      }else{
+                        echo '<input type="hidden" name="sugar" value=0><br>';
                       }
-                      echo '</select> </div> ';
-                    }else{
-                      echo '<input type="hidden" name="sugar" value=0><br>';
-                    }
+                      
+                      ?>
 
-                    ?>
+                    <!-- 商品選択 -->
+                    <hr>
+                      <input type = "hidden" name = "id" value = <?php echo $row->id;?>>
+                      <input type = "hidden" name = "name" value = <?php echo $row->productName;?>>
+                      <input type = "hidden" name = "cart_insert" value = <?php echo $row->id;?>>
+                      <input type = "submit" class="btn btn-pls btn-primary" value = "選択">
+                  </form>
 
-<!-- 商品選択 -->
-<hr>
-<input type = "hidden" name = "id" value = <?php echo $row->id;?>>
-<input type = "hidden" name = "name" value = <?php echo $row->productName;?>>
-<input type = "hidden" name = "cart_insert" value = <?php echo $row->id;?>>
-<input type = "submit" class="btn btn-pls btn-primary" value = "選択">
-</form>
-
-</div>
-</div>
-</div>
-<?php endforeach;?>
-</div>
-
-</div>
+                </div>
+                <!-- card-body -->
+              </div>
+              <!-- card h-100 -->
+          </div>
+          <!-- col-sm-4 col_size -->
+        <?php endforeach;?>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- class="card-deck -->
 <footer class="py-4 text-right">
   <div class="container text-right">
     <small><a class="f_text" href="index.php" >戻る</a></small>

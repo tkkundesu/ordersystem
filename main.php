@@ -228,11 +228,12 @@
                         for($m = 0; $m<=10; $m++){
                           echo '<option value = "',$m, '">',$m, '</option>';
                         }
-                        echo '</select>';
+                        echo '</select></div>';
                       }else{
                         echo '<input type="hidden" name="milk" value=0><br>';
                       }
                       if($row->sugar==1){
+                        echo '<div class="form-row align-items-center">';
                         echo '砂糖';
                         echo '<select name = "sugar" class=" my_select" id="inlineFormCustomSelect">';
                         for($s = 0; $s<=10; $s++){

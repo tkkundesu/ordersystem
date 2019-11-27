@@ -350,7 +350,7 @@ public function room_add(){//会議室追加
    }
  private function validateImageType() {
   $this->imageType = getimagesize($_FILES['image']['tmp_name']);//拡張子を調べる関数
-  switch($this->imageType) {
+  switch($this->imageType[2]) {
     case IMAGETYPE_GIF:
       return 'gif';
     case IMAGETYPE_JPEG:

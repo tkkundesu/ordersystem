@@ -153,6 +153,9 @@ if(!isset($sql)){
 
 public function room_check(){//部屋情報のセッションを持つ
   try{
+     if(isset($_SESSION['product'])){
+	     unset($_SESSION['product']);
+     }
      if(!empty($_REQUEST["room_id"])){//リクエストパラメーターが空でない場合
          if(isset($_SESSION['room'])){//ルームセッションに情報が格納されている場合アンセット
              unset($_SESSION['room']);

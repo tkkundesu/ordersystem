@@ -16,6 +16,10 @@ class Drink {
     $stmt = $this->_db->query("select * from room");
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
+  public function getRoom_isuse() {//ルームテーブルからセレクト
+    $stmt = $this->_db->query("select * from room where is_use=0");
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+  }
 
   public function getProducts(){//プロダクトテーブルからセレクト
     $stmt = $this->_db->query("select * from products");

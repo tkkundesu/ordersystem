@@ -311,7 +311,7 @@ public function count_minus(){//カートの任意の商品の個数をマイナ
           }
 
   public function get_history() {//履歴表示
-          $stmt = $this->_db->query("select order_time + interval 9 hour,room_name,productName,product_count,milk_count,sugar_count from drink_order,order_detail,products,room where drink_order.id=order_detail.order_id and order_detail.product_id=products.id and drink_order.room_id=room.id ORDER BY order_time DESC limit 50");
+          $stmt = $this->_db->query("select * from drink_order,order_detail,products,room where drink_order.id=order_detail.order_id and order_detail.product_id=products.id and drink_order.room_id=room.id ORDER BY order_time DESC limit 50");
           return $stmt->fetchAll(PDO::FETCH_OBJ);
             }
 

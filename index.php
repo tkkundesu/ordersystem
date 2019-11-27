@@ -3,7 +3,7 @@
 require "Drink.php";
 require "config.php";
 $order=new Drink();
-$sql=$order->getRoom();
+$sql=$order->getRoom_isuse();
 if($_SERVER['REQUEST_METHOD']==='POST'){
   $order->room_check();
   header("Location:main.php");

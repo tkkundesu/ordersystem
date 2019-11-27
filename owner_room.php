@@ -16,7 +16,7 @@ if(isset($_REQUEST['command'])){
       header("Location:owner_room.php");
       break;
   }
-
+}
   if(isset($_REQUEST['insert'])){
   $order->room_add();
   header("Location:owner_room.php");

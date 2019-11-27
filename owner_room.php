@@ -16,7 +16,7 @@ if(isset($_REQUEST['command'])){
       header("Location:owner_room.php");
       break;
   }
-
+}
   if(isset($_REQUEST['insert'])){
   $order->room_add();
   header("Location:owner_room.php");
@@ -41,7 +41,7 @@ if(isset($_REQUEST['command'])){
 
      <form action="" method="post">
           <input type="hidden" name="insert" value="insert">
-          <input class="form-control col-sm-4 owner_form" type="text" name="new_room" placeholder="会議室名記入欄">
+          <input class="form-control col-sm-4 owner_form" type="text" name="new_room" placeholder="会議室名記入欄" value="">
           <br><input class="btn btn-primary btn-pls owner_bottan" type="submit" value="追加">
     </from>
   </fieldset>

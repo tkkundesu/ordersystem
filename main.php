@@ -180,8 +180,6 @@
   <body class = "body">
       <!-- ヘッダー -->
   <div class="header"><img src="images/drinkmenu.png" class="logo"></div>
-
-    <div class = "container my_container">
 <hr>
             <div class="card-deck">
               <div class="row">

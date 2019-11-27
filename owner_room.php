@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/owner.css">
+<link rel="stylesheet" href="../css/owner.css">
 <?php
 require "Drink.php";
 require "config.php";
@@ -16,12 +16,13 @@ if(isset($_REQUEST['command'])){
       header("Location:owner_room.php");
       break;
   }
-}
+
   if(isset($_REQUEST['insert'])){
   $order->room_add();
   header("Location:owner_room.php");
     }
 
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -40,7 +41,7 @@ if(isset($_REQUEST['command'])){
 
      <form action="" method="post">
           <input type="hidden" name="insert" value="insert">
-          <input class="form-control col-sm-3 owner_form" type="text" name="new_room" placeholder="会議室名記入欄" value="">
+          <input class="form-control col-sm-4 owner_form" type="text" name="new_room" placeholder="会議室名記入欄">
           <br><input class="btn btn-primary btn-pls owner_bottan" type="submit" value="追加">
     </from>
   </fieldset>
@@ -48,12 +49,14 @@ if(isset($_REQUEST['command'])){
     <fieldset>
       <table class="owner_table">
         <tr>
+          <th>会議室ID</th>
           <th>会議室名</th>
           <th></th>
           <th>利用</th>
         </tr>
       <?php foreach ($sql as $row) :?>
         <tr>
+          <td><?php echo $row->id; ?></td>
           <td><form action="" method="post">
             <input class="form-control" type="text" name="room_name" value="<?php echo $row->room_name; ?>">
             <input type="hidden" name="command" value="update">

@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   <title>マスターログイン</title>  <!--画面タイトル-->
 </head>
 <body>
-<div class="field">
+
   <fieldset>
     <h1>owner login</h1>
     <form action="" method="post">
@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
       <input type="password" name="owner_pass" placeholder="Password" required>
       <input type="submit" value="Enter">
     </form>
-  </fieldset>
+  
   </div>
 </body>
 </html>

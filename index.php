@@ -31,19 +31,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
 
   <form action="" method="post" class="dutton_container">
-  <!-- <div class="form-row align-items-center"> -->
-    <!-- <select name="room_id" class="old-select custom-select" id="inlineFormCustomSelect"> -->
+
       <!--データベースにある分だけ選択肢を作る-->
       <?php foreach ($sql as $row) :?>
         <br><input type="hidden" class="room_input btn btn-pls btn-primary btn-block " value="<?php echo $row->id;?>" name="room_id">
         <input type="submit" class="room_input btn btn-pls btn-primary btn-block " id="sound1" value="<?php echo $row->room_name; ?>" width=70%><br>
       <?php endforeach;?>
 
-<!-- <audio id="sound" preload="auto">
-   <source src="../sounds/decision6.mp3" type="audio/mp3">
-</audio> -->
-
-    <!-- <input type="submit" class="room_input btn btn-pls btn-primary" value="決定"> -->
   </form>
 
   <footer class="py-4 text-right">

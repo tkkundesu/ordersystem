@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
       <input type="password" name="owner_pass" placeholder="Password" required>
       <input type="submit" value="Enter">
     </form>
-  
+  </fieldset>
   </div>
 </body>
 </html>

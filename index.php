@@ -28,7 +28,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
   <title>会議室選択</title>  <!--画面タイトル-->
 </head>
 <body class="body index_body">
-<div class="header"><h1 class="index_title text-success text-monospace">会議室を選択してください</h1>  <!--見出し--></div>
 
 
   <form action="" method="post" class="dutton_container">
